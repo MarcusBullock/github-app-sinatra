@@ -9,14 +9,18 @@ class GithubApp < Sinatra::Base
   end
 
   get '/read' do
-    api_result = RestClient.get '[http://api.openweathermap.org/data/2.5/weather?q=London&appid=8dbcc5eceddae7ab2d858e41dcd0ad58&units=metric]'
-    jhash = JSON.parse(api_result)
+    users = User.all
+    JSON.generate(users)
   end
 
   post '/create' do
-    User.create
+    api_result = RestClient.get 'https://api.github.com/users/ScottGledhill?access_token=2a1f0daf2b47c0ef1c4886653f73d9b678b76ed5'
+    jhash = JSON.parse(api_result)
+    login = jhash["login"]
+    followers = jhash["followers"]
+    avatar_url = jhash["avatar_url"]
   end
-  #
+
   # post '/update' do
   #
   # end
