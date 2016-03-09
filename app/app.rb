@@ -13,11 +13,13 @@ class GithubApp < Sinatra::Base
   post '/create' do
     User.create
   end
-
-  post '/update' do
-  end
+  #
+  # post '/update' do
+  #
+  # end
 
   post '/delete' do
+
   end
 
 
