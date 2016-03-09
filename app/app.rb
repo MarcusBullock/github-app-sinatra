@@ -7,16 +7,18 @@ class GithubApp < Sinatra::Base
   end
 
   get '/read' do
+    User.all
   end
 
   post '/create' do
+    User.create
   end
 
   post '/update' do
   end
 
   post '/delete' do
-  end 
+  end
 
 
 
