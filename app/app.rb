@@ -20,17 +20,6 @@ class GithubApp < Sinatra::Base
     followers = jhash["followers"]
     avatar_url = jhash["avatar_url"]
   end
-
-  # post '/update' do
-  #
-  # end
-
-  post '/delete' do
-
-  end
-
-
-
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
