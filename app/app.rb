@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require 'rest-client'
+require 'json'
 
 class GithubApp < Sinatra::Base
 
@@ -7,7 +9,8 @@ class GithubApp < Sinatra::Base
   end
 
   get '/read' do
-    User.all
+    api_result = RestClient.get '[http://api.openweathermap.org/data/2.5/weather?q=London&appid=8dbcc5eceddae7ab2d858e41dcd0ad58&units=metric]'
+    jhash = JSON.parse(api_result)
   end
 
   post '/create' do
