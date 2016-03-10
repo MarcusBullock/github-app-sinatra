@@ -22,14 +22,14 @@ class GithubApp < Sinatra::Base
     jhash = JSON.parse(api_result)
     jarray << jhash
     jarray.each do |user|
-      User.create(
-                  url: user['html_url'],
+      User.create(url: user['html_url'],
                   username: user['login'],
                   repo_count: user['public_repos'],
                   follower_count: user['followers'],
                   avatar: user['avatar_url']
                   )
     end
+
   end
 
   # post '/update' do
