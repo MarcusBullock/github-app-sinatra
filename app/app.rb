@@ -20,6 +20,5 @@ class GithubApp < Sinatra::Base
     # followers = jhash["followers"]
     # avatar_url = jhash["avatar_url"]
   end
-
   run! if app_file == $0
 end
