@@ -1,11 +1,14 @@
+ENV['RACK_ENV'] ||= 'development'
+
 require 'sinatra/base'
-require 'rest-client'
+require 'rest_client'
+require_relative 'dm_setup'
 require 'json'
 
 class GithubApp < Sinatra::Base
 
   get '/' do
-    erb :index
+    'hello world'
   end
 
   get '/read' do

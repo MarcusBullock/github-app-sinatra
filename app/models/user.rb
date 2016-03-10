@@ -1,10 +1,12 @@
-require 'data_mapper'
+require 'dm-validations'
 
 class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String
   property :url, String
-  mount_uploader :image, ImageUploader
-end 
+  property :username, String
+  property :repo_count, Integer
+  property :follower_count, Integer
+  property :avatar, String
+end
