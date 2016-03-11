@@ -4,6 +4,8 @@ require 'sinatra/base'
 require 'rest_client'
 require_relative 'dm_setup'
 require 'json'
+require 'dotenv'
+Dotenv.load
 
 class GithubApp < Sinatra::Base
 
@@ -18,7 +20,7 @@ class GithubApp < Sinatra::Base
 
   post '/create' do
     jarray = []
-    api_result = RestClient.get 'https://api.github.com/users/ScottGledhill?access_token=2a1f0daf2b47c0ef1c4886653f73d9b678b76ed5'
+    api_result = RestClient.get "https://api.github.com/users/MarcusBullock?access_token=#{ENV['ACCESS_TOKEN']}"
     jhash = JSON.parse(api_result)
     jarray << jhash
     jarray.each do |user|

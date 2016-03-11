@@ -62,6 +62,7 @@ GEM
       dm-core (~> 1.2.0)
     do_postgres (0.10.17)
       data_objects (= 0.10.17)
+    dotenv (2.1.0)
     extlib (0.9.16)
     fastercsv (1.5.5)
     highline (1.7.8)
@@ -75,6 +76,7 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -122,7 +124,9 @@ DEPENDENCIES
   database_cleaner
   dm-postgres-adapter
   dm-validations
+  dotenv
   json
+  rack-cors
   rake
   rest-client
   rspec
