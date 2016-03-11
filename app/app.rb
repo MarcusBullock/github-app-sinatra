@@ -20,18 +20,23 @@ class GithubApp < Sinatra::Base
   end
 
   post '/create' do
-    jarray = []
-    api_result = RestClient.get "https://api.github.com/users/MarcusBullock?access_token=#{ENV['ACCESS_TOKEN']}"
+    api_result = RestClient.get "https://api.github.com/users?per_page=100&access_token=#{ENV['ACCESS_TOKEN']}"
     jhash = JSON.parse(api_result)
-    jarray << jhash
-    jarray.each do |user|
-      User.create(url: user['html_url'],
-                  username: user['login'],
-                  repo_count: user['public_repos'],
-                  follower_count: user['followers'],
-                  avatar: user['avatar_url']
-                  )
+
+
+    jhash.each do |user|
+      user_id = user['login']
+      user1 = RestClient.get "https://api.github.com/users/#{user_id}?access_token=#{ENV['ACCESS_TOKEN']}"
+      userjson = JSON.parse(user1)
+      User.create(url: userjson['html_url'],
+      username: userjson['login'],
+      repo_count: userjson['public_repos'],
+      follower_count: userjson['followers'],
+      avatar: userjson['avatar_url']
+      )
     end
+
+    redirect '/read'
   end
   run! if app_file == $0
 end
