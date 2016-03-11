@@ -76,7 +76,6 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     rack (1.6.4)
-    rack-cors (0.4.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -126,7 +125,6 @@ DEPENDENCIES
   dm-validations
   dotenv
   json
-  rack-cors
   rake
   rest-client
   rspec
