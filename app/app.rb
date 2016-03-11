@@ -14,6 +14,7 @@ class GithubApp < Sinatra::Base
   end
 
   get '/read' do
+    response['Access-Control-Allow-Origin'] = 'http://localhost:8080'
     users = User.all
     JSON.generate(users)
   end
